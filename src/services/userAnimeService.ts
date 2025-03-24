@@ -21,8 +21,8 @@ export type AnimeStatus = "plan_to_watch" | "completed" | "watching";
 export interface AnimeEntry {
     animeId: number;
     status: AnimeStatus;
-    currentEp: number;
-    totalEp?: number;
+    currentEpisode: number;
+    totalEpisodes?: number;
     rating?: number;
     notes?: string;
     dateAdded?: any;
