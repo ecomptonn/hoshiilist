@@ -5,6 +5,7 @@ import { auth } from "./services/firebaseConfig";
 
 // Pages
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -53,6 +54,16 @@ const App: React.FC = () => {
                             path="/login"
                             element={
                                 user ? <Navigate to="/" replace /> : <Login />
+                            }
+                        />
+                        <Route
+                            path="/register"
+                            element={
+                                user ? (
+                                    <Navigate to="/" replace />
+                                ) : (
+                                    <Register />
+                                )
                             }
                         />
                         <Route
