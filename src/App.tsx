@@ -6,9 +6,11 @@ import { auth } from "./services/firebaseConfig";
 // Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 
 // Components
 import Navigation from "./components/Navigation";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App: React.FC = () => {
     const [user, setUser] = useState<any>(null);
@@ -42,39 +44,40 @@ const App: React.FC = () => {
                             path="/"
                             element={
                                 user ? (
-                                    <div className="p-8">
-                                        Dashboard Placeholder
-                                    </div>
+                                    <Navigate to="/dashboard" replace />
                                 ) : (
                                     <Navigate to="/login" replace />
                                 )
                             }
                         />
+
+                        <Route
+                            path="/dashboard"
+                            element={
+                                <ProtectedRoute user={user}>
+                                    <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        />
+
                         <Route
                             path="/login"
                             element={
-                                user ? <Navigate to="/" replace /> : <Login />
+                                user ? (
+                                    <Navigate to="/dashboard" replace />
+                                ) : (
+                                    <Login />
+                                )
                             }
                         />
+
                         <Route
                             path="/register"
                             element={
                                 user ? (
-                                    <Navigate to="/" replace />
+                                    <Navigate to="/dashboard" replace />
                                 ) : (
                                     <Register />
-                                )
-                            }
-                        />
-                        <Route
-                            path="/dashboard"
-                            element={
-                                user ? (
-                                    <div className="p-8">
-                                        Dashboard Placeholder
-                                    </div>
-                                ) : (
-                                    <Navigate to="/login" replace />
                                 )
                             }
                         />
