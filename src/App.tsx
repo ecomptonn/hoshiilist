@@ -7,6 +7,7 @@ import { auth } from "./services/firebaseConfig";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Discover from "./pages/Discover";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -46,7 +47,7 @@ const App: React.FC = () => {
                                 user ? (
                                     <Navigate to="/dashboard" replace />
                                 ) : (
-                                    <Navigate to="/login" replace />
+                                    <Navigate to="/discover" replace />
                                 )
                             }
                         />
@@ -59,6 +60,8 @@ const App: React.FC = () => {
                                 </ProtectedRoute>
                             }
                         />
+
+                        <Route path="/discover" element={<Discover />} />
 
                         <Route
                             path="/login"
