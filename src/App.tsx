@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Discover from "./pages/Discover";
+import SeasonalCalendar from "./pages/SeasonalCalendar";
+import AnimeDetails from "./pages/AnimeDetails";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -62,6 +64,10 @@ const App: React.FC = () => {
                         />
 
                         <Route path="/discover" element={<Discover />} />
+                        <Route
+                            path="/seasonal"
+                            element={<SeasonalCalendar />}
+                        />
 
                         <Route
                             path="/login"
