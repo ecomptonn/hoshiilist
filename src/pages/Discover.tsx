@@ -1,4 +1,3 @@
-// src/pages/Discover.tsx
 import React, { useState, useEffect } from "react";
 import { animeService } from "../services/animeService";
 import AnimeCard from "../components/AnimeCard";
