@@ -68,6 +68,7 @@ const App: React.FC = () => {
                             path="/seasonal"
                             element={<SeasonalCalendar />}
                         />
+                        <Route path="/anime/:id" element={<AnimeDetails />} />
 
                         <Route
                             path="/login"
