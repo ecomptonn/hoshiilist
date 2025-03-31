@@ -8,13 +8,13 @@ const SeasonalCalendar: React.FC = () => {
     const seasons = ["winter", "spring", "summer", "fall"];
 
     // Current season based on date
-    const getCurrentSeason = () => {
+    const getCurrentSeason = React.useCallback(() => {
         const month = new Date().getMonth();
         if (month >= 0 && month <= 2) return "winter";
         if (month >= 3 && month <= 5) return "spring";
         if (month >= 6 && month <= 8) return "summer";
         return "fall";
-    };
+    }, []);
 
     // State
     const [selectedYear, setSelectedYear] = useState(currentYear);
@@ -60,7 +60,7 @@ const SeasonalCalendar: React.FC = () => {
         };
 
         fetchSeasonalAnime();
-    }, [selectedYear, selectedSeason]);
+    }, [selectedYear, selectedSeason, currentYear, getCurrentSeason]);
 
     return (
         <div className="container mx-auto px-4 py-8">
