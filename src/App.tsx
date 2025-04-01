@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Discover from "./pages/Discover";
 import SeasonalCalendar from "./pages/SeasonalCalendar";
 import AnimeDetails from "./pages/AnimeDetails";
+import NotFound from "./pages/NotFound";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -91,6 +92,8 @@ const App: React.FC = () => {
                                 )
                             }
                         />
+
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
             </div>
