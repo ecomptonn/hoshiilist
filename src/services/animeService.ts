@@ -37,7 +37,7 @@ export const animeService = {
     getAnimeById: async (id: number) => {
         try {
             const response = await axiosRateLimit.get(
-                `${API_BASE_URL}/anime/${id}}`
+                `${API_BASE_URL}/anime/${id}`
             );
             return response.data;
         } catch (error) {
