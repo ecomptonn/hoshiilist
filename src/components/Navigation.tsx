@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../services/firebaseConfig";
 import { authService } from "../services/authService";
 
 interface NavigationProps {
@@ -46,12 +45,37 @@ const Navigation: React.FC<NavigationProps> = ({ user }) => {
                                     My Lists
                                 </Link>
                                 <div className="flex items-center space-x-2">
-                                    {user.photoURL && (
-                                        <img
-                                            src={user.photoURL}
-                                            alt="Profile"
-                                            className="w-8 h-8 rounded-full"
-                                        />
+                                    {user.photoURL ? (
+                                        <>
+                                            <img
+                                                src={user.photoURL}
+                                                alt="Profile"
+                                                className="w-8 h-8 rounded-full object-cover"
+                                                onError={(e) => {
+                                                    console.error(
+                                                        "Failed to load profile image:",
+                                                        user.photoURL
+                                                    );
+                                                    e.currentTarget.onerror =
+                                                        null;
+                                                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                                                        user.displayName ||
+                                                            user.email?.charAt(
+                                                                0
+                                                            ) ||
+                                                            "U"
+                                                    )}&background=5046e4&color=fff`;
+                                                }}
+                                            />
+                                        </>
+                                    ) : (
+                                        <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-medium">
+                                            {(
+                                                user.displayName?.charAt(0) ||
+                                                user.email?.charAt(0) ||
+                                                "U"
+                                            ).toUpperCase()}
+                                        </div>
                                     )}
                                     <span>
                                         {user.displayName || user.email}
