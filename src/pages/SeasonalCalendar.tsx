@@ -134,8 +134,11 @@ const SeasonalCalendar: React.FC = () => {
             {/* Anime grid */}
             {!loading && animeList.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {animeList.map((anime) => (
-                        <AnimeCard key={anime.mal_id} anime={anime} />
+                    {animeList.map((anime, index) => (
+                        <AnimeCard
+                            key={`${anime.mal_id}-${index}`}
+                            anime={anime}
+                        />
                     ))}
                 </div>
             )}
