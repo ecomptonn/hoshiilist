@@ -138,8 +138,6 @@ const EpisodeTracker: React.FC<EpisodeTrackerProps> = ({
                         <option value="plan_to_watch">Plan to Watch</option>
                         <option value="watching">Watching</option>
                         <option value="completed">Completed</option>
-                        <option value="on_hold">On Hold</option>
-                        <option value="dropped">Dropped</option>
                     </select>
                 </div>
             </div>
@@ -172,12 +170,6 @@ const EpisodeTracker: React.FC<EpisodeTrackerProps> = ({
                     +
                 </button>
             </div>
-
-            {isUpdating && (
-                <div className="mt-2 text-center text-sm text-gray-500">
-                    Updating...
-                </div>
-            )}
         </div>
     );
 };
