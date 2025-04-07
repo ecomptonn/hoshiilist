@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Base url for Jikan API
-const API_BASE_URL = "https://api.jikan.moe/v4/";
+const API_BASE_URL = "https://api.jikan.moe/v4";
 
 // Rate limiter to prevent API overload (3 request per second)
 const axiosRateLimit = axios.create();
