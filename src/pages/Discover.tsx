@@ -11,7 +11,6 @@ const Discover: React.FC = () => {
     const [searchLoading, setSearchLoading] = useState(false);
     const [error, setError] = useState("");
 
-    // Fetch trending and seasonal anime on component mount
     useEffect(() => {
         const fetchInitialData = async () => {
             setLoading(true);
@@ -20,12 +19,32 @@ const Discover: React.FC = () => {
             try {
                 // Fetch top anime
                 const topAnimeResponse = await animeService.getTopAnime();
-                setTrendingAnime(topAnimeResponse.data.slice(0, 8));
+
+                // Filter out duplicates for trending anime
+                const uniqueTrendingAnime = Array.from(
+                    new Map(
+                        topAnimeResponse.data.map((item: any) => [
+                            item.mal_id,
+                            item,
+                        ])
+                    ).values()
+                );
+                setTrendingAnime(uniqueTrendingAnime.slice(0, 8));
 
                 // Fetch current season anime
                 const seasonalResponse =
                     await animeService.getCurrentSeasonAnime();
-                setCurrentSeason(seasonalResponse.data.slice(0, 8));
+
+                // Filter out duplicates for seasonal anime
+                const uniqueSeasonalAnime = Array.from(
+                    new Map(
+                        seasonalResponse.data.map((item: any) => [
+                            item.mal_id,
+                            item,
+                        ])
+                    ).values()
+                );
+                setCurrentSeason(uniqueSeasonalAnime.slice(0, 8));
             } catch (err) {
                 console.error("Error fetching initial data:", err);
                 setError(
