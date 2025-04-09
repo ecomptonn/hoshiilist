@@ -48,7 +48,14 @@ const SeasonalCalendar: React.FC = () => {
                     );
                 }
 
-                setAnimeList(response.data);
+                // Filter out duplicates before setting state
+                const uniqueAnimeList = Array.from(
+                    new Map(
+                        response.data.map((item: any) => [item.mal_id, item])
+                    ).values()
+                );
+
+                setAnimeList(uniqueAnimeList);
             } catch (err) {
                 console.error("Error fetching seasonal anime:", err);
                 setError(
