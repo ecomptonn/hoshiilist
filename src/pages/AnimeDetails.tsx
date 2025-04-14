@@ -207,11 +207,11 @@ const AnimeDetails: React.FC = () => {
 
                             {/* Add to list section */}
                             {auth.currentUser && (
-                                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 p-4 bg-indigo-800 bg-opacity-50 rounded-lg">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 p-4 bg-white rounded-lg">
                                     <div className="flex-grow">
                                         <label
                                             htmlFor="status-select"
-                                            className="block text-sm font-medium mb-1"
+                                            className="block text-sm font-medium mb-1 text-black"
                                         >
                                             Add to your list
                                         </label>
@@ -219,7 +219,7 @@ const AnimeDetails: React.FC = () => {
                                             id="status-select"
                                             value={selectedStatus}
                                             onChange={handleStatusChange}
-                                            className="w-full px-3 py-2 bg-indigo-700 bg-opacity-50 border border-indigo-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                                            className="w-full px-3 py-2 bg-indigo-700 border border-indigo-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
                                         >
                                             <option value="plan_to_watch">
                                                 Plan to Watch
@@ -251,7 +251,7 @@ const AnimeDetails: React.FC = () => {
                         <div className="md:w-2/3">
                             <section className="mb-8">
                                 <h2 className="text-2xl font-serif mb-4">
-                                    Synopsis
+                                    Summary
                                 </h2>
                                 <p className="text-gray-700 whitespace-pre-line">
                                     {anime.synopsis}
@@ -268,7 +268,7 @@ const AnimeDetails: React.FC = () => {
                                             src={anime.trailer.embed_url}
                                             title="Trailer"
                                             frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen
                                             className="absolute inset-0 w-full h-full rounded-lg"
                                         ></iframe>
