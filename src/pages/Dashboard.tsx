@@ -74,17 +74,29 @@ const Dashboard: React.FC = () => {
                 animeId
             );
 
+            // Get the anime details to check against max episodes
+            const animeDetails = animeList.find(
+                (item) => item.details.mal_id === animeId
+            );
+            const totalEpisodes = animeDetails?.details.episodes || Infinity;
+
+            // Ensure the new episode count doesn't exceed total episodes
+            const limitedEpisode = Math.min(
+                Math.max(0, newEpisode),
+                totalEpisodes
+            );
+
             if (animeEntry) {
                 await userAnimeService.addAnimeToList(auth.currentUser.uid, {
                     ...animeEntry,
-                    currentEpisode: newEpisode,
+                    currentEpisode: limitedEpisode,
                 });
 
                 // Update local state
                 setAnimeList((prevList) =>
                     prevList.map((item) =>
                         item.animeId === animeId
-                            ? { ...item, currentEpisode: newEpisode }
+                            ? { ...item, currentEpisode: limitedEpisode }
                             : item
                     )
                 );
