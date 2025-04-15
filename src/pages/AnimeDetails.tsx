@@ -265,7 +265,10 @@ const AnimeDetails: React.FC = () => {
                                     </h2>
                                     <div className="relative pt-[56.25%]">
                                         <iframe
-                                            src={anime.trailer.embed_url}
+                                            src={anime.trailer.embed_url.replace(
+                                                "autoplay=1",
+                                                "autoplay=0"
+                                            )}
                                             title="Trailer"
                                             frameBorder="0"
                                             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
