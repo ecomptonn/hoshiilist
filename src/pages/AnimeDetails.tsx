@@ -8,7 +8,6 @@ import EpisodeTracker from "../components/EpisodeTracker";
 const AnimeDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const animeId = parseInt(id || "0");
-
     const [anime, setAnime] = useState<any>(null);
     const [userEntry, setUserEntry] = useState<any>(null);
     const [loading, setLoading] = useState(true);
