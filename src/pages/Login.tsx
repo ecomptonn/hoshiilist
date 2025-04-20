@@ -51,7 +51,7 @@ const Login: React.FC = () => {
                             to="/register"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                         >
-                            Create a new account
+                            create a new account
                         </Link>
                     </p>
                 </div>
