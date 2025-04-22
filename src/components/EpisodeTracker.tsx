@@ -141,7 +141,6 @@ const EpisodeTracker: React.FC<EpisodeTrackerProps> = ({
                     </select>
                 </div>
             </div>
-
             <div className="flex items-center justify-between">
                 <button
                     onClick={handleDecrement}
