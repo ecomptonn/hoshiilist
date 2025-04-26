@@ -5,6 +5,7 @@ import { animeService } from "../services/animeService";
 import { userAnimeService, AnimeStatus } from "../services/userAnimeService";
 import EpisodeTracker from "../components/EpisodeTracker";
 
+// AnimeDetails page rendering logic
 const AnimeDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const animeId = parseInt(id || "0");
