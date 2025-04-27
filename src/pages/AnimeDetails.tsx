@@ -37,9 +37,7 @@ const AnimeDetails: React.FC = () => {
                 }
             } catch (err) {
                 console.error("Error fetching anime details:", err);
-                setError(
-                    "Failed to load anime details. Please try again later."
-                );
+                setError("Failed to load anime details.");
             } finally {
                 setLoading(false);
             }
