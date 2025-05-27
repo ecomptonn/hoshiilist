@@ -28,7 +28,7 @@ HoshiiList is a modern web application for anime enthusiasts to track their watc
 -   **Frontend**: React, TypeScript, Tailwind CSS
 -   **Backend**: Firebase (Authentication, Firestore)
 -   **API**: Jikan API (MyAnimeList API)
--   **Hosting**: Heroku
+-   **Hosting**: Firebase
 
 ## Future Enhancements
 
