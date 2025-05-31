@@ -120,7 +120,7 @@ const AnimeDetails: React.FC = () => {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                {/* Header section */}
+                {/* Header */}
                 <div
                     className="relative bg-indigo-900 text-white py-10 px-6"
                     style={{
